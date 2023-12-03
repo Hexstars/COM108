@@ -1,0 +1,43 @@
+# Project: BaiLamThem
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = BaiLamThem.o hinhvuong.o ktraso.o boiso.o mang2c.o nhap.o
+LINKOBJ  = BaiLamThem.o hinhvuong.o ktraso.o boiso.o mang2c.o nhap.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = BaiLamThem.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+BaiLamThem.o: BaiLamThem.c
+	$(CC) -c BaiLamThem.c -o BaiLamThem.o $(CFLAGS)
+
+hinhvuong.o: hinhvuong.c
+	$(CC) -c hinhvuong.c -o hinhvuong.o $(CFLAGS)
+
+ktraso.o: ktraso.c
+	$(CC) -c ktraso.c -o ktraso.o $(CFLAGS)
+
+boiso.o: boiso.c
+	$(CC) -c boiso.c -o boiso.o $(CFLAGS)
+
+mang2c.o: mang2c.c
+	$(CC) -c mang2c.c -o mang2c.o $(CFLAGS)
+
+nhap.o: nhap.c
+	$(CC) -c nhap.c -o nhap.o $(CFLAGS)
